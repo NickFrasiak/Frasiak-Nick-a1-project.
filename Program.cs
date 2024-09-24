@@ -43,6 +43,7 @@ if (playerInput == "stay")
 
         //Player chooses how many tools they grab
         int tools = int.Parse(Console.ReadLine());
+
         Console.WriteLine($"you grabbed {tools} tools and head back to the front of the ship.");
         Console.WriteLine($"As you approach the front of the ship you use {tools} to attept to fix the ship.");
         if (tools >= 5)
@@ -63,65 +64,71 @@ if (playerInput == "stay")
 
 //Second path (EXPLORE)
 else if (playerInput == "explore")
-{
-    Console.WriteLine($"You leave your broken ship and start to explore this beutiful earth like planet, {planetName} ," +
-        "after walking for some time you start to hear some strange noises noises and get the sense you are not alone...");
-    Console.WriteLine("");
-    Console.WriteLine($"{playerName}, Would you like to head back or keep exploring? After all it could just be your imagination...");
-
-
-    playerInput = Console.ReadLine();
-
-    if (playerInput == "head back")
     {
-        //bad ending 3
-
-        hasOxygen = false;
-        Console.WriteLine("You turn around out of fear, your oxygen is starting to deplete you start seeing black and...");
+        Console.WriteLine($"You leave your broken ship and start to explore this beutiful earth like planet, {planetName} ," +
+            "after walking for some time you start to hear some strange noises noises and get the sense you are not alone...");
         Console.WriteLine("");
-        Console.WriteLine("You failed.");
+        Console.WriteLine($"{playerName}, Would you like to head back or keep exploring? After all it could just be your imagination...");
 
 
-    }
-
-    else if (playerInput == "keep exploring")
-    {
-        Console.WriteLine("You stumble across a cave that smells like home, walking in the noise you have been hearing gets louder..");
-        hasOxygen = true;
-        Console.WriteLine("You suddenly start beng able to breathe deeply, you feel refreshed");
-        Console.WriteLine("");    
-        Console.WriteLine("You see humanoid like creatures.. they start speaking and somehow you can understand them?");
-        Console.WriteLine($"What would you like to name these creatures {playerName}?");
-        String alienName = Console.ReadLine();
-        Console.WriteLine($"You explain your dire situation to the {alienName} and they offer you help. " +
-            "Do you take it?");
         playerInput = Console.ReadLine();
+
+        if (playerInput == "head back")
+        {
+            //bad ending 3
+
+            hasOxygen = false;
+
+            Console.WriteLine("You turn around out of fear, your oxygen is starting to deplete you start seeing black and...");
+            Console.WriteLine("");
+            Console.WriteLine("You failed.");
+
+
+        }
+
+        else if (playerInput == "keep exploring")
+        {
+            Console.WriteLine("You stumble across a cave that smells like home, walking in the noise you have been hearing gets louder..");
+            hasOxygen = true;
+            Console.WriteLine("You suddenly start beng able to breathe deeply, you feel refreshed");
+            Console.WriteLine("");
+            Console.WriteLine("You see humanoid like creatures.. they start speaking and somehow you can understand them?");
+            Console.WriteLine($"What would you like to name these creatures {playerName}?");
+            String alienName = Console.ReadLine();
+            Console.WriteLine($"You explain your dire situation to the {alienName} and they offer you help. " +
+                "Do you take it?");
+            playerInput = Console.ReadLine();
+        }
+        else
+        {
+            Console.WriteLine("Invalid input please choose head back or keep exploring.");
+        }
+
+        if (playerInput == "yes")
+        {
+            if (hasOxygen)
+            {
+                Console.WriteLine("Your oxygen is running low..");
+            }
+
+            //good ending 2
+            Console.WriteLine($"These humanoid creatures come back with you to your ship and fix it with advanced tech," +
+                "you head home and cant wait to tell everyone at home about your discovery.. congrats you did it!");
+
+        }
+        else if (playerInput == "no")
+        {
+            Console.WriteLine("Your distrust confuses the aliens and they no longer pay attention to you.. " +
+                "everything around you turns dark and you get the sense you are falling into a void..");
+        }
+
+
     }
+
+
     else
     {
-        Console.WriteLine("Invalid input please choose head back or keep exploring.");
+        Console.WriteLine("you have failed to make a decision and die in a panic, please choose input stay or explore.");
     }
-
-    if (playerInput == "yes")
-    {
-        //good ending 2
-        Console.WriteLine($"These humanoid creatures come back with you to your ship and fix it with advanced tech," +
-            "you head home and cant wait to tell everyone at home about your discovery.. congrats you did it!");
-
-    }
-    else if (playerInput == "no")
-    {
-        Console.WriteLine("Your distrust confuses the aliens and they no longer pay attention to you.. " +
-            "everything around you turns dark and you get the sense you are falling into a void..");
-    }
-
-
-}
-
-
-else
-{
-    Console.WriteLine("you have failed to make a decision and die in a panic, please choose input stay or explore.");
-}
 
 
