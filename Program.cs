@@ -49,7 +49,7 @@ if (playerInput == "stay")
         //good ending 1
         {
             Console.WriteLine($"You succesfully fixed the malfuntioning ship! Earth has recieved an distress signal from {playerName}, and they " +
-                "will leave immediately.");
+                "will leave immediately! You did it! You have been saved!");
         }
         else
         //bad ending 2
@@ -81,16 +81,19 @@ else if (playerInput == "explore")
         Console.WriteLine("");
         Console.WriteLine("You failed.");
 
+
     }
 
     else if (playerInput == "keep exploring")
     {
         Console.WriteLine("You stumble across a cave that smells like home, walking in the noise you have been hearing gets louder..");
         hasOxygen = true;
-        Console.WriteLine("");
+        Console.WriteLine("You suddenly start beng able to breathe deeply, you feel refreshed");
+        Console.WriteLine("");    
         Console.WriteLine("You see humanoid like creatures.. they start speaking and somehow you can understand them?");
         Console.WriteLine($"What would you like to name these creatures {playerName}?");
-        Console.WriteLine("You explain your dire situation to these creatures and they offer you help. " +
+        String alienName = Console.ReadLine();
+        Console.WriteLine($"You explain your dire situation to the {alienName} and they offer you help. " +
             "Do you take it?");
         playerInput = Console.ReadLine();
     }
@@ -101,6 +104,7 @@ else if (playerInput == "explore")
 
     if (playerInput == "yes")
     {
+        //good ending 2
         Console.WriteLine($"These humanoid creatures come back with you to your ship and fix it with advanced tech," +
             "you head home and cant wait to tell everyone at home about your discovery.. congrats you did it!");
 
