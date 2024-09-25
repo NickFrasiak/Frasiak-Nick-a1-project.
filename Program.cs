@@ -6,7 +6,7 @@ using System.ComponentModel.Design;
 Console.WriteLine("Hello there space traveller! What would you like to be called?");
 string playerName = Console.ReadLine();
 
-//Story intro
+//Story intro + Player names planet
 Console.WriteLine($"{playerName}, You are finnaly aproaching the distant planet you have been travelling to for years. " +
     "Apon arrival your ship is starting to malfuntion, you stick the landing on the undiscovered planet but your ship is wrecked." +
     "You look outside and see the earth like planet. What do you name this planet?");
@@ -41,7 +41,7 @@ if (playerInput == "stay")
         Console.WriteLine("You head to the back of the ship desperatley looking for tools,approaching the very back of the ship you find a tool box!" +
             "There are many tools present, how many do you grab?");
 
-        //Player chooses how many tools they grab
+        //Player chooses how many tools they grab using int/parse
         int tools = int.Parse(Console.ReadLine());
 
         Console.WriteLine($"you grabbed {tools} tools and head back to the front of the ship.");
@@ -65,6 +65,7 @@ if (playerInput == "stay")
 //Second path (EXPLORE)
 else if (playerInput == "explore")
     {
+
         Console.WriteLine($"You leave your broken ship and start to explore this beutiful earth like planet, {planetName} ," +
             "after walking for some time you start to hear some strange noises noises and get the sense you are not alone...");
         Console.WriteLine("");
@@ -78,8 +79,12 @@ else if (playerInput == "explore")
             //bad ending 3
 
             hasOxygen = false;
+        if (hasOxygen)
+        {
+            Console.WriteLine("Your oxygen is running low..");
+        }
 
-            Console.WriteLine("You turn around out of fear, your oxygen is starting to deplete you start seeing black and...");
+        Console.WriteLine("You turn around out of fear, your oxygen is starting to deplete you start seeing black and...");
             Console.WriteLine("");
             Console.WriteLine("You failed.");
 
@@ -88,6 +93,7 @@ else if (playerInput == "explore")
 
         else if (playerInput == "keep exploring")
         {
+        //(best path imo) 
             Console.WriteLine("You stumble across a cave that smells like home, walking in the noise you have been hearing gets louder..");
             hasOxygen = true;
             Console.WriteLine("You suddenly start beng able to breathe deeply, you feel refreshed");
@@ -106,11 +112,7 @@ else if (playerInput == "explore")
 
         if (playerInput == "yes")
         {
-            if (hasOxygen)
-            {
-                Console.WriteLine("Your oxygen is running low..");
-            }
-
+           
             //good ending 2
             Console.WriteLine($"These humanoid creatures come back with you to your ship and fix it with advanced tech," +
                 "you head home and cant wait to tell everyone at home about your discovery.. congrats you did it!");
